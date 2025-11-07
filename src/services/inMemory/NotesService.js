@@ -1,4 +1,4 @@
-const { nanoid } = require('nanoid');
+const { nanoid } = require('nanoid')
 
 class NotesService {
   constructor() {
@@ -13,6 +13,7 @@ class NotesService {
     const newNote = {
       title, tags, body, id, createdAt, updatedAt,
     };
+
     this._notes.push(newNote);
 
     const isSuccess = this._notes.filter((note) => note.id === id).length > 0;
@@ -20,6 +21,7 @@ class NotesService {
     if (!isSuccess) {
       throw new Error('Catatan gagal ditambahkan');
     }
+
     return id;
   }
 
@@ -41,7 +43,9 @@ class NotesService {
     if (index === -1) {
       throw new Error('Gagal memperbarui catatan. Id tidak ditemukan');
     }
+
     const updatedAt = new Date().toISOString();
+
     this._notes[index] = {
       ...this._notes[index],
       title,
